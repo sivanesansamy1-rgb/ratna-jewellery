@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coupons — RATNA Admin</title>
+  <link rel="stylesheet" href="/css/admin.css" />
+</head>
+
+<body class="admin-body">
+  <div class="admin-shell">
+    <aside class="admin-sidebar">
+      <div class="admin-logo">RATNA<span>.</span> Admin</div>
+      <nav class="admin-nav">
+        <a href="/admin/dashboard.html">&#9670; Dashboard</a>
+        <a href="/admin/products.html">&#9670; Products</a>
+        <a href="/admin/categories.html">&#9670; Categories</a>
+        <a href="/admin/orders.html">&#9670; Orders</a>
+        <a href="/admin/users.html">&#9670; Customers</a>
+        <a href="/admin/reviews.html">&#9670; Reviews</a>
+        <a href="/admin/coupons.html">&#9670; Coupons</a>
+        <a href="/admin/returns.html">&#9670; Returns</a>
+      </nav>
+    </aside>
+    <main class="admin-main">
+      <div class="admin-topbar">
+        <h1>Coupons</h1>
+        <div class="admin-user"><span id="admin-user-name"></span><button data-admin-logout>Logout</button></div>
+      </div>
+
+      <div class="panel">
+        <h3 style="margin-top:0;">Create Coupon</h3>
+        <form id="add-coupon-form">
+          <div class="a-form-row-3">
+            <div class="a-form-group"><label>Code</label><input name="code" placeholder="FESTIVE10" required /></div>
+            <div class="a-form-group"><label>Discount Type</label>
+              <select name="discountType">
+                <option value="percentage">Percentage</option>
+                <option value="fixed">Fixed (₹)</option>
+              </select>
+            </div>
+            <div class="a-form-group"><label>Discount Value</label><input name="discountValue" type="number" required />
+            </div>
+          </div>
+          <div class="a-form-row-3">
+            <div class="a-form-group"><label>Min Order Value (₹)</label><input name="minOrderValue" type="number"
+                value="0" /></div>
+            <div class="a-form-group"><label>Max Discount (₹, optional)</label><input name="maxDiscount"
+                type="number" /></div>
+            <div class="a-form-group"><label>Usage Limit (optional)</label><input name="usageLimit" type="number" />
+            </div>
+          </div>
+          <div class="a-form-row">
+            <div class="a-form-group"><label>Start Date</label><input name="startDate" type="date" required /></div>
+            <div class="a-form-group"><label>Expiry Date</label><input name="expiryDate" type="date" required /></div>
+          </div>
+          <button class="a-btn primary" type="submit">Create Coupon</button>
+        </form>
+      </div>
+
+      <div class="panel">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Code</th>
+              <th>Discount</th>
+              <th>Min Order</th>
+              <th>Validity</th>
+              <th>Used</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="coupons-tbody">
+            <tr class="empty-row">
+              <td colspan="7">Loading...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="/js/toast.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+
+</html>

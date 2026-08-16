@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products — RATNA Admin</title>
+  <link rel="stylesheet" href="/css/admin.css" />
+</head>
+<body class="admin-body">
+  <div class="admin-shell">
+    <aside class="admin-sidebar">
+      <div class="admin-logo">RATNA<span>.</span> Admin</div>
+      <nav class="admin-nav">
+        <a href="/admin/dashboard.html">&#9670; Dashboard</a>
+        <a href="/admin/products.html">&#9670; Products</a>
+        <a href="/admin/categories.html">&#9670; Categories</a>
+        <a href="/admin/orders.html">&#9670; Orders</a>
+        <a href="/admin/users.html">&#9670; Customers</a>
+        <a href="/admin/reviews.html">&#9670; Reviews</a>
+        <a href="/admin/coupons.html">&#9670; Coupons</a>
+        <a href="/admin/returns.html">&#9670; Returns</a>
+      </nav>
+    </aside>
+    <main class="admin-main">
+      <div class="admin-topbar">
+        <h1>Products</h1>
+        <div class="admin-user"><span id="admin-user-name"></span><button data-admin-logout>Logout</button></div>
+      </div>
+
+      <div class="panel">
+        <div class="toolbar">
+          <input type="search" id="product-search" placeholder="Search products by name or SKU..." style="min-width:280px;"/>
+          <button class="a-btn primary" id="add-product-btn">+ Add Product</button>
+        </div>
+        <table class="data-table">
+          <thead><tr><th>Image</th><th>Name</th><th>Category</th><th>Price</th><th>Stock</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody id="products-tbody"><tr class="empty-row"><td colspan="7">Loading...</td></tr></tbody>
+        </table>
+      </div>
+
+      <div class="modal-overlay hidden" id="product-modal">
+        <div class="modal-box">
+          <button class="modal-close" id="close-product-modal" onclick="document.getElementById('product-modal').classList.add('hidden')">&times;</button>
+          <h3 id="product-modal-title">Add Product</h3>
+          <form id="product-form">
+            <div class="a-form-row">
+              <div class="a-form-group"><label>Product Name</label><input name="name" required/></div>
+              <div class="a-form-group"><label>SKU</label><input name="sku" required/></div>
+            </div>
+            <div class="a-form-group"><label>Category</label><select name="category" required></select></div>
+            <div class="a-form-group"><label>Description</label><textarea name="description" rows="3" required></textarea></div>
+            <div class="a-form-row-3">
+              <div class="a-form-group"><label>Base Price (₹)</label><input name="price" type="number" required/></div>
+              <div class="a-form-group"><label>Discount Price (₹)</label><input name="discountPrice" type="number"/></div>
+              <div class="a-form-group"><label>Weight (g)</label><input name="weight" type="number" step="0.1"/></div>
+            </div>
+            <div class="a-form-group"><label>Image URLs (comma-separated)</label><input name="images" placeholder="https://... , https://..."/></div>
+            <div class="a-form-row-3">
+              <div class="a-form-group"><label>Default Metal Type</label><input name="metalType" placeholder="e.g. 18K Gold"/></div>
+              <div class="a-form-group"><label>Metal Purity</label><input name="metalPurity" placeholder="e.g. 18K"/></div>
+              <div class="a-form-group"><label>Colour</label><input name="color" placeholder="e.g. Yellow Gold"/></div>
+            </div>
+            <div class="a-form-row">
+              <div class="a-form-group"><label>Stone Type</label><input name="stoneType"/></div>
+              <div class="a-form-group"><label>Stone Weight (ct)</label><input name="stoneWeight" type="number" step="0.01"/></div>
+            </div>
+            <div class="a-form-row">
+              <div class="a-form-group"><label>Available Sizes (comma-separated)</label><input name="availableSizes" placeholder="14, 16, 18"/></div>
+              <div class="a-form-group"><label>Base Stock (if no variants)</label><input name="stock" type="number" min="0" placeholder="0"/></div>
+            </div>
+            <div class="a-form-group">
+              <label>Variants (Metal / Size / Price / Stock)</label>
+              <div id="variant-rows"></div>
+              <button type="button" class="a-btn small" id="add-variant-btn">+ Add Variant</button>
+            </div>
+
+            <div style="display:flex;gap:10px;margin-top:20px;">
+              <button type="button" class="a-btn" id="close-product-modal-2" onclick="document.getElementById('product-modal').classList.add('hidden')">Cancel</button>
+              <button class="a-btn primary" type="submit">Save Product</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="/js/toast.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/admin.js?v=2"></script>
+</body>
+</html>

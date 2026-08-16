@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — RATNA Admin</title>
+  <link rel="stylesheet" href="/css/admin.css" />
+</head>
+<body class="admin-body">
+  <div class="admin-shell">
+    <aside class="admin-sidebar">
+      <div class="admin-logo">RATNA<span>.</span> Admin</div>
+      <nav class="admin-nav">
+        <a href="/admin/dashboard.html">&#9670; Dashboard</a>
+        <a href="/admin/products.html">&#9670; Products</a>
+        <a href="/admin/categories.html">&#9670; Categories</a>
+        <a href="/admin/orders.html">&#9670; Orders</a>
+        <a href="/admin/users.html">&#9670; Customers</a>
+        <a href="/admin/reviews.html">&#9670; Reviews</a>
+        <a href="/admin/coupons.html">&#9670; Coupons</a>
+        <a href="/admin/returns.html">&#9670; Returns</a>
+      </nav>
+    </aside>
+    <main class="admin-main">
+      <div class="admin-topbar">
+        <h1>Dashboard</h1>
+        <div class="admin-user"><span id="admin-user-name"></span><button data-admin-logout>Logout</button></div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat-card"><div class="label">Total Revenue</div><div class="value" id="stat-revenue">₹0</div><div class="sub">Paid orders only</div></div>
+        <div class="stat-card"><div class="label">Total Orders</div><div class="value" id="stat-orders">0</div><div class="sub" id="stat-pending-orders">0 pending</div></div>
+        <div class="stat-card"><div class="label">Customers</div><div class="value" id="stat-customers">0</div><div class="sub">Registered users</div></div>
+        <div class="stat-card"><div class="label">Products</div><div class="value" id="stat-products">0</div><div class="sub"><span id="stat-stock">0</span> units in stock</div></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><h3>Revenue (last 12 months)</h3></div>
+        <div class="chart-bars" id="revenue-chart"></div>
+        <div class="chart-labels" id="revenue-chart-labels"></div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+        <div class="panel">
+          <div class="panel-head"><h3>Low Stock Alerts</h3></div>
+          <div id="low-stock-list"></div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h3>Top Selling Products</h3></div>
+          <div id="top-products-list"></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><h3>Pending Return Requests</h3><a href="/admin/returns.html" class="a-btn small">View All</a></div>
+        <p class="muted"><span id="stat-pending-returns">0</span> return request(s) awaiting review.</p>
+      </div>
+    </main>
+  </div>
+
+  <script src="/js/toast.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>

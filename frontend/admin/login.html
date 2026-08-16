@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login — RATNA Admin</title>
+  <link rel="stylesheet" href="/css/admin.css" />
+</head>
+
+<body class="admin-body">
+  <div class="login-shell">
+    <div class="login-card">
+      <div class="admin-logo-plain">RATNA<span style="color:#B8925A;">.</span></div>
+      <div class="tag">Admin Console</div>
+      <form id="admin-login-form" autocomplete="off">
+        <div class="form-msg error hidden form-error-box"></div>
+        <div class="a-form-group"><label>Email</label><input type="email" name="email" required autocomplete="off" /></div>
+        <div class="a-form-group">
+          <label>Password</label>
+          <div style="position: relative;">
+            <input type="password" name="password" required style="padding-right: 40px;" autocomplete="new-password" />
+            <button type="button" onclick="const input = this.previousElementSibling; input.type = input.type === 'password' ? 'text' : 'password'; this.innerHTML = input.type === 'password' ? '👁️' : '🙈';" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; font-size: 1.1rem; opacity: 0.6; padding: 0;" title="Toggle password visibility">👁️</button>
+          </div>
+        </div>
+        <button class="a-btn primary" type="submit" style="width:100%;padding:12px;">Log In</button>
+      </form>
+
+    </div>
+  </div>
+
+  <script src="/js/toast.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/admin.js?v=2"></script>
+</body>
+
+</html>

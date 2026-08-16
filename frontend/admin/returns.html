@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Returns — RATNA Admin</title>
+  <link rel="stylesheet" href="/css/admin.css" />
+</head>
+<body class="admin-body">
+  <div class="admin-shell">
+    <aside class="admin-sidebar">
+      <div class="admin-logo">RATNA<span>.</span> Admin</div>
+      <nav class="admin-nav">
+        <a href="/admin/dashboard.html">&#9670; Dashboard</a>
+        <a href="/admin/products.html">&#9670; Products</a>
+        <a href="/admin/categories.html">&#9670; Categories</a>
+        <a href="/admin/orders.html">&#9670; Orders</a>
+        <a href="/admin/users.html">&#9670; Customers</a>
+        <a href="/admin/reviews.html">&#9670; Reviews</a>
+        <a href="/admin/coupons.html">&#9670; Coupons</a>
+        <a href="/admin/returns.html">&#9670; Returns</a>
+      </nav>
+    </aside>
+    <main class="admin-main">
+      <div class="admin-topbar">
+        <h1>Returns &amp; Refunds</h1>
+        <div class="admin-user"><span id="admin-user-name"></span><button data-admin-logout>Logout</button></div>
+      </div>
+
+      <div class="panel">
+        <table class="data-table">
+          <thead><tr><th>Order</th><th>Customer</th><th>Reason</th><th>Type</th><th>Status</th><th>Requested</th></tr></thead>
+          <tbody id="returns-tbody"><tr class="empty-row"><td colspan="6">Loading...</td></tr></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="/js/toast.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>

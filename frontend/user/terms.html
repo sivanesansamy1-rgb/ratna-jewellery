@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms & Conditions — RATNA Fine Jewellery</title>
+  <meta name="description" content="RATNA Fine Jewellery — certified gold, diamond and gemstone jewellery with lifetime exchange." />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  
+  <header class="site-header">
+    <div class="nav-wrap">
+      <button class="mobile-toggle" id="mobile-nav-toggle" aria-label="Menu">&#9776;</button>
+      <a href="/user/index.html" class="logo">RATNA<span>.</span></a>
+      <nav>
+        <ul class="main-nav" id="main-nav">
+          <li><a href="/user/index.html">Home</a></li>
+          <li><a href="/user/shop.html">Shop All</a></li>
+          <li><a href="/user/shop/?sort=featured">Bridal</a></li>
+          <li><a href="/user/shop/?sort=newest">New Arrivals</a></li>
+          <li><a href="/user/shop/?sort=best-selling">Bestsellers</a></li>
+          <li><a href="/user/about.html">Our Story</a></li>
+          <li><a href="/user/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <form class="search-bar" id="nav-search-form">
+        <span class="search-icon">&#9906;</span>
+        <input type="search" placeholder="Search gold rings, diamond necklaces..." />
+      </form>
+      <div class="nav-icons">
+        <a href="/user/wishlist.html" class="icon-btn" title="Wishlist"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -4px;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg><span class="badge hidden" id="wishlist-count-badge">0</span></a>
+        <a href="/user/cart.html" class="icon-btn" title="Cart"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -4px;"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg><span class="badge hidden" id="cart-count-badge">0</span></a>
+        <span id="nav-account-slot"></span>
+      </div>
+    </div>
+  </header>
+
+<main>
+  <div class="container" style="padding:60px 28px 100px;max-width:760px;">
+    <h1>Terms &amp; Conditions</h1>
+    <p class="muted">Please read these terms carefully before using the RATNA storefront.</p>
+    <hr class="gold-rule" style="margin:24px 0;"/>
+    <h3>Orders &amp; Payment</h3>
+    <p>All prices are listed in Indian Rupees (INR) and are inclusive of applicable taxes unless stated otherwise. Orders are confirmed only after successful payment verification.</p>
+    <h3>Product Accuracy</h3>
+    <p>We make every effort to accurately display colours and details of our jewellery, though slight variations may occur due to screen settings and the handmade nature of each piece.</p>
+    <h3>Account Responsibility</h3>
+    <p>You are responsible for maintaining the confidentiality of your account credentials and for all activity under your account.</p>
+    <h3>Governing Law</h3>
+    <p>These terms are governed by the laws of India.</p>
+  </div>
+
+</main>
+<footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="logo" style="color:#FAF6EE;margin-bottom:14px;">RATNA<span style="color:#B8925A;">.</span></div>
+        <p style="max-width:280px;font-size:0.88rem;">Fine jewellery crafted with certified metals and stones, backed by a lifetime exchange promise.</p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="/user/shop/?category=rings">Rings</a></li>
+          <li><a href="/user/shop/?category=necklaces">Necklaces</a></li>
+          <li><a href="/user/shop/?category=earrings">Earrings</a></li>
+          <li><a href="/user/shop/?category=bangles">Bangles</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul>
+          <li><a href="/user/contact.html">Contact Us</a></li>
+          <li><a href="/user/returns-policy.html">Returns &amp; Refunds</a></li>
+          <li><a href="/user/order-details.html?ref=track">Track Order</a></li>
+          <li><a href="/user/terms.html">Terms &amp; Conditions</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/user/about.html">About Us</a></li>
+          <li><a href="/user/privacy.html">Privacy Policy</a></li>
+          </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 RATNA Fine Jewellery. All rights reserved. Demo storefront built for the jewellery e-commerce project spec.</div>
+  </footer>
+
+  <script src="/js/toast.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/cart.js"></script>
+  
+  <script>
+    document.getElementById('mobile-nav-toggle')?.addEventListener('click', () => {
+      document.getElementById('main-nav').classList.toggle('mobile-open');
+      const nav = document.getElementById('main-nav');
+      nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+      nav.style.cssText += 'position:absolute;top:100%;left:0;right:0;background:var(--ivory);flex-direction:column;padding:16px 28px;border-bottom:1px solid var(--line);gap:14px;z-index:200;';
+    });
+</script>
+</body>
+</html>
+
