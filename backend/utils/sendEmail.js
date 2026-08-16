@@ -1,15 +1,27 @@
-const { Resend } = require('resend');
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const sendEmail = async (options) => {
   try {
-    await resend.emails.send({
-      from: 'onboarding@resend.dev', // NOTE: You MUST use this exact 'from' address on the free tier
-      to: options.email,            // The email address the user typed in your registration form
-      subject: options.subject,
-      html: options.html
+    const response = await fetch('https://api.brevo.com/v3/smtp/email', {
+      method: 'POST',
+      headers: {
+        'accept': 'application/json',
+        'api-key': process.env.BREVO_API_KEY,
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        // IMPORTANT: This must be the email you verified on your Brevo account
+        sender: { name: 'RATNA Fine Jewellery', email: 'sivanesansamy1@gmail.com' }, 
+        to: [{ email: options.email }], 
+        subject: options.subject,
+        htmlContent: options.html
+      })
     });
-    console.log("Email sent successfully!");
+    
+    if (!response.ok) {
+        const err = await response.json();
+        console.error("Brevo error:", err);
+    } else {
+        console.log("OTP Email sent successfully via Brevo!");
+    }
   } catch (error) {
     console.error("Email error:", error);
   }
