@@ -9,7 +9,7 @@ const API_BASE = (() => {
   // Allow overriding the API origin without touching every file, e.g. when
   // the backend is deployed to Render/Railway instead of localhost.
   const override = window.localStorage.getItem('ratna_api_base');
-  return override || 'http://localhost:5000/api';
+  return override || 'https://ratna-jewellery.onrender.com/api';
 })();
 
 function getToken() {
