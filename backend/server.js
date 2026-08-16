@@ -37,6 +37,9 @@ app.use(express.json({ limit: '2mb' }));
 if (process.env.NODE_ENV !== 'production') app.use(morgan('dev'));
 
 // --- Routes ---
+app.get('/', (req, res) => {
+    res.status(200).send('RATNA Backend is awake and running!');
+});
 app.get('/api/health', (req, res) => res.json({ status: 'ok', time: new Date().toISOString() }));
 
 app.use('/api/auth', require('./routes/authRoutes'));
