@@ -99,9 +99,25 @@ table.data-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
 
 .hidden { display: none !important; }
 
+.table-responsive { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.admin-mobile-toggle { display: none; background: none; border: none; font-size: 1.5rem; color: var(--a-ink); cursor: pointer; padding: 0 10px; }
+.admin-sidebar-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 999; display: none; }
+.admin-sidebar-overlay.show { display: block; }
+
 @media (max-width: 900px) {
   .admin-shell { grid-template-columns: 1fr; }
-  .admin-sidebar { display: none; }
+  .admin-sidebar { 
+    position: fixed; 
+    top: 0; 
+    left: -260px; 
+    width: 260px; 
+    bottom: 0; 
+    z-index: 1000; 
+    transition: left 0.3s ease; 
+    box-shadow: 4px 0 15px rgba(0,0,0,0.1); 
+  }
+  .admin-sidebar.open { left: 0; }
+  .admin-mobile-toggle { display: block; }
   .stat-grid { grid-template-columns: 1fr 1fr; }
   .a-form-row, .a-form-row-3 { grid-template-columns: 1fr; }
 }

@@ -25,6 +25,7 @@
     </aside>
     <main class="admin-main">
       <div class="admin-topbar">
+        <button class="admin-mobile-toggle" id="admin-mobile-toggle">&#9776;</button>
         <h1>Coupons</h1>
         <div class="admin-user"><span id="admin-user-name"></span><button data-admin-logout>Logout</button></div>
       </div>
@@ -60,7 +61,8 @@
       </div>
 
       <div class="panel">
-        <table class="data-table">
+        <div class="table-responsive">
+<table class="data-table">
           <thead>
             <tr>
               <th>Code</th>
@@ -78,6 +80,7 @@
             </tr>
           </tbody>
         </table>
+</div>
       </div>
     </main>
   </div>

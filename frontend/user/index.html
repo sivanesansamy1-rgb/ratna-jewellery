@@ -185,9 +185,7 @@
   <script>
     document.getElementById('mobile-nav-toggle')?.addEventListener('click', () => {
       document.getElementById('main-nav').classList.toggle('mobile-open');
-      const nav = document.getElementById('main-nav');
-      nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-      nav.style.cssText += 'position:absolute;top:100%;left:0;right:0;background:var(--ivory);flex-direction:column;padding:16px 28px;border-bottom:1px solid var(--line);gap:14px;z-index:200;';
+      
     });
 </script>
 </body>

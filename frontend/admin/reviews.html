@@ -23,15 +23,18 @@
     </aside>
     <main class="admin-main">
       <div class="admin-topbar">
+        <button class="admin-mobile-toggle" id="admin-mobile-toggle">&#9776;</button>
         <h1>Reviews &amp; Ratings</h1>
         <div class="admin-user"><span id="admin-user-name"></span><button data-admin-logout>Logout</button></div>
       </div>
 
       <div class="panel">
-        <table class="data-table">
+        <div class="table-responsive">
+<table class="data-table">
           <thead><tr><th>Product</th><th>Customer</th><th>Rating</th><th>Comment</th><th>Status</th><th>Actions</th></tr></thead>
           <tbody id="reviews-tbody"><tr class="empty-row"><td colspan="6">Loading...</td></tr></tbody>
         </table>
+</div>
       </div>
     </main>
   </div>

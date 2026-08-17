@@ -466,6 +466,26 @@ async function loadReturnsTable() {
 document.addEventListener('DOMContentLoaded', () => {
   renderAdminChrome();
 
+  const sidebar = document.querySelector('.admin-sidebar');
+  const toggleBtn = document.getElementById('admin-mobile-toggle');
+  if (sidebar && toggleBtn) {
+    const overlay = document.createElement('div');
+    overlay.className = 'admin-sidebar-overlay';
+    document.body.appendChild(overlay);
+
+    const closeSidebar = () => {
+      sidebar.classList.remove('open');
+      overlay.classList.remove('show');
+    };
+
+    toggleBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+      overlay.classList.toggle('show');
+    });
+
+    overlay.addEventListener('click', closeSidebar);
+  }
+
   const loginForm = document.getElementById('admin-login-form');
   if (loginForm) loginForm.addEventListener('submit', (e) => { e.preventDefault(); handleAdminLoginForm(loginForm); });
 
