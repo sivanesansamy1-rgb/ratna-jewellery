@@ -40,8 +40,11 @@
   <div class="container">
     <div class="breadcrumb"><a href="/user/index.html">Home</a> / Shop All</div>
     <div class="shop-layout">
-      <aside class="filters">
-        <h3 style="margin-bottom:16px;">Filter</h3>
+      <aside class="filters" id="shop-filters">
+        <div class="filter-header" id="filter-toggle-btn" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+          <h3 style="margin:0;">Filter</h3>
+          <span class="filter-icon" id="filter-icon" style="font-size: 1.5rem; line-height: 1; display: none; cursor: pointer;">+</span>
+        </div>
         <form id="filter-form">
           <div class="filter-group">
             <h4>Price Range</h4>
@@ -130,8 +133,15 @@
   <script>
     document.getElementById('mobile-nav-toggle')?.addEventListener('click', () => {
       document.getElementById('main-nav').classList.toggle('mobile-open');
-      
     });
-</script>
+    document.getElementById('filter-toggle-btn')?.addEventListener('click', () => {
+      if (window.innerWidth <= 980) {
+        const filters = document.getElementById('shop-filters');
+        filters.classList.toggle('open');
+        const icon = document.getElementById('filter-icon');
+        icon.textContent = filters.classList.contains('open') ? '−' : '+';
+      }
+    });
+  </script>
 </body>
 </html>
