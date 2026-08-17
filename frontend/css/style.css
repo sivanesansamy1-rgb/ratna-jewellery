@@ -483,7 +483,8 @@ footer.site-footer { background: var(--emerald-deep); color: rgba(250,246,238,0.
   .cart-item > div:last-child { grid-column: 2; text-align: left !important; margin-top: 8px; }
   
   .order-row { grid-template-columns: 60px 1fr; gap: 10px; }
-  .order-row > :nth-child(3), .order-row > :nth-child(4) { grid-column: 2; text-align: left !important; margin-top: 0; }
+  .order-row > :nth-child(3) { grid-column: 2; text-align: left !important; margin-top: 0; justify-self: start; }
+  .order-row > :nth-child(4) { grid-column: 2; text-align: left !important; margin-top: 0; }
   
   .tracking-line { flex-direction: column; margin: 20px 0; }
   .tracking-step { display: flex; align-items: center; text-align: left; padding-bottom: 20px; font-size: 0.85rem; }
