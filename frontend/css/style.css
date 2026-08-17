@@ -494,6 +494,7 @@ footer.site-footer { background: var(--emerald-deep); color: rgba(250,246,238,0.
   
   .footer-grid { grid-template-columns: 1fr; gap: 24px; text-align: center; }
   .footer-grid p { margin: 0 auto; }
+  .footer-grid .social-links { justify-content: center; }
   .footer-grid h4 { font-size: 1.05rem; margin-bottom: 14px; }
   .footer-grid li { margin-bottom: 4px; }
   .checkout-steps { flex-wrap: wrap; gap: 20px; }
