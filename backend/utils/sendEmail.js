@@ -1,11 +1,16 @@
 const nodemailer = require('nodemailer');
 
 const sendEmail = async (options) => {
+  if (!process.env.SMTP_HOST) {
+    throw new Error("SMTP variables are not configured on the server!");
+  }
+
   try {
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: process.env.SMTP_PORT,
       secure: false, // true for 465, false for other ports
+      connectionTimeout: 10000, // Fail fast if it can't connect
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
@@ -22,6 +27,7 @@ const sendEmail = async (options) => {
     console.log("Email sent successfully via Nodemailer: %s", info.messageId);
   } catch (error) {
     console.error("Email error:", error);
+    throw error; // Throw so the controller knows it failed
   }
 };
 
