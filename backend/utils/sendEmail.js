@@ -1,33 +1,31 @@
-const nodemailer = require('nodemailer');
-
 const sendEmail = async (options) => {
-  if (!process.env.SMTP_HOST) {
-    throw new Error("SMTP variables are not configured on the server!");
-  }
-
   try {
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: 465, // Force 465
-      secure: true, // Force true for 465
-      connectionTimeout: 10000, 
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
+    const response = await fetch('https://api.brevo.com/v3/smtp/email', {
+      method: 'POST',
+      headers: {
+        'accept': 'application/json',
+        'api-key': process.env.BREVO_API_KEY,
+        'content-type': 'application/json'
       },
+      body: JSON.stringify({
+        // IMPORTANT: This must be the email you verified on your Brevo account
+        sender: { name: 'RATNA Fine Jewellery', email: 'sivanesansamy1@gmail.com' }, 
+        to: [{ email: options.email }], 
+        subject: options.subject,
+        htmlContent: options.html
+      })
     });
-
-    const info = await transporter.sendMail({
-      from: `"${process.env.SMTP_FROM_NAME || 'RATNA Jewellery'}" <${process.env.SMTP_FROM_EMAIL || process.env.SMTP_USER}>`,
-      to: options.email,
-      subject: options.subject,
-      html: options.html,
-    });
-
-    console.log("Email sent successfully via Nodemailer: %s", info.messageId);
+    
+    if (!response.ok) {
+        const err = await response.json();
+        console.error("Brevo error:", err);
+        throw new Error("Brevo API rejected the email");
+    } else {
+        console.log("OTP Email sent successfully via Brevo!");
+    }
   } catch (error) {
     console.error("Email error:", error);
-    throw error; // Throw so the controller knows it failed
+    throw error;
   }
 };
 
